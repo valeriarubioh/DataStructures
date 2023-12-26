@@ -127,6 +127,19 @@ class MySinglyLinkedList {
 
     return removedNode;
   }
+
+  reverse(){
+    let previousNode = null;
+    let current = this.head;
+    while(current!==null){
+      const nextNode = current.next;
+      current.next = previousNode;
+      previousNode = current;
+      current = nextNode;
+    }
+    this.head = previousNode;
+    this.tail = this.head;
+  }
 }
 
 let myLinkedList = new MySinglyLinkedList(1);
